@@ -12,4 +12,14 @@ class Order extends Model
         'moment',
         'status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function orderItens()
+    {
+        return $this->hasMany(OrderItem::class, 'order_id');
+    }
 }
