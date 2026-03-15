@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Roboto",sans-serif;
+}
+
+html,body{
+    background:#000;
+    color:#fff;
+}
+
+/* LINKS */
+
+a,
+a:hover,
+a:visited{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* HEADER */
+
+header{
+    background:linear-gradient(180deg,#102347 0%,#181818 100%);
+    min-height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.logo-container{
+    text-align:center;
+}
+
+.logo-container h1{
+    margin-top:10px;
+    font-size:clamp(22px,3vw,30px);
+    color:#676fff;
+}
+
+.logo-container p{
+    font-size:14px;
+    font-weight:300;
+}
+
+
+/* CONTAINER PRINCIPAL */
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+
+/* SEÇÃO */
+
+#vendas{
+    padding:20px 10px 60px 10px;
+}
+
+
+/* CARD */
+
+.card{
+    background:#283142;
+    border-radius:10px;
+    padding:clamp(20px,3vw,40px);
+    width:100%;
+}
+
+.card-title{
+    color:#676fff;
+    font-size:clamp(22px,2.5vw,28px);
+    margin-bottom:25px;
+}
+
+
+/* FORMULÁRIO */
+
+.search-form{
+    margin-bottom:30px;
+}
+
+.form-row{
+    display:grid;
+    gap:15px;
+}
+
+/* MOBILE */
+
+.form-row{
+    grid-template-columns:1fr;
+}
+
+.btn-search{
+    width:100%;
+}
+
+
+/* TABLET */
+
+@media(min-width:600px){
+
+    .form-row{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn-search{
+        grid-column:span 2;
+        width:200px;
+        justify-self:center;
+    }
+
+}
+
+
+/* DESKTOP */
+
+@media(min-width:900px){
+
+    .form-row{
+        grid-template-columns:1fr 1fr 1fr auto;
+        align-items:end;
+    }
+
+    .btn-search{
+        grid-column:auto;
+        width:auto;
+        justify-self:start;
+    }
+
+}
+
+
+/* INPUTS */
+
+.form-group label{
+    display:block;
+    margin-bottom:6px;
+    color:#9aaabe;
+    font-size:14px;
+}
+
+.form-control{
+    width:100%;
+    height:44px;
+    background:#1b2531;
+    border:1px solid #384459;
+    border-radius:5px;
+    padding:0 12px;
+    color:#fff;
+    font-size:15px;
+}
+
+.form-control:focus{
+    outline:none;
+    border-color:#676fff;
+}
+
+
+/* BOTÃO */
+
+.btn-search{
+    height:44px;
+    padding:0 30px;
+    background:#676fff;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.btn-search:hover{
+    background:#4a52c9;
+}
+
+
+/* TABELA */
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+    margin-top:20px;
+}
+
+.sales-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+.sales-table thead{
+    background:#1b2531;
+}
+
+.sales-table th{
+    padding:12px;
+    font-size:14px;
+    text-align:center;
+}
+
+.sales-table td{
+    padding:12px;
+    text-align:center;
+    border-top:1px solid #5f6e82;
+}
+
+.sales-table tbody tr:nth-child(odd){
+    background:#242c3b;
+}
+
+.sales-table tbody tr:hover{
+    background:#384459;
+}
+
+
+/* BOTÕES */
+
+.action-btn-container{
+    display:flex;
+    justify-content:center;
+}
+
+.action-btn{
+    height:40px;
+    width:40px;
+    border-radius:10px;
+    background:rgba(255,107,114,0.1);
+    border:1px solid #ff6b72;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+.action-btn:hover{
+    background:rgba(255,107,114,0.2);
+}
+
+.btn-icon{
+    font-size:18px;
+}
+
+
+/* LOADING */
+
+.loading-spinner{
+    text-align:center;
+    padding:30px;
+}
+
+.spinner{
+    border:4px solid #384459;
+    border-top:4px solid #676fff;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    animation:spin 1s linear infinite;
+    margin:auto;
+}
+
+@keyframes spin{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
+}
+
+
+/* MOBILE TABLE */
+
+@media(max-width:600px){
+
+    .sales-table thead{
+        display:none;
+    }
+
+    .sales-table,
+    .sales-table tbody,
+    .sales-table tr,
+    .sales-table td{
+        display:block;
+        width:100%;
+    }
+
+    .sales-table tr{
+        background:#1b2531;
+        margin-bottom:15px;
+        border-radius:8px;
+        padding:10px;
+    }
+
+    .sales-table td{
+        display:flex;
+        justify-content:space-between;
+        border:none;
+        padding:8px;
+        border-bottom:1px solid #384459;
+    }
+
+    .sales-table td:last-child{
+        border:none;
+    }
+
+    .sales-table td::before{
+        content:attr(data-label);
+        color:#676fff;
+        font-weight:bold;
+    }
+
+}
+
+
+/* MONITORES GRANDES */
+
+@media(min-width:1400px){
+
+.container{
+    max-width:1400px;
+}
+
+.card{
+    padding:50px;
+}
+
+.card-title{
+    font-size:32px;
+}
+
+}
+
+
+/* ULTRAWIDE */
+
+@media(min-width:1800px){
+
+.container{
+    max-width:1600px;
+}
+
+}   

@@ -12,7 +12,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $pedidos = Order::with('user', 'orderItens.product')->where('id', 1)->get();
-        return $pedidos;
+        $orders = Order::with('user', 'orderItens.product')->get();
+         return  view('index',compact('orders'));
     }
 }
