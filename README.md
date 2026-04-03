@@ -295,20 +295,9 @@ php artisan serve
 
 ---
 
-## 📈 Possíveis melhorias
-
-* Implementar autenticação (Laravel Sanctum ou JWT)
-* Criar endpoints de criação/edição/exclusão (CRUD completo)
-* Paginação de pedidos
-* Filtros por status e data
-* Validação com Form Requests
-* Testes automatizados (PHPUnit)
-
----
-
 ## 👨‍💻 Autor
 
-Desenvolvido por **Leonardo Almeida**
+Desenvolvido por **Leonardo Almeida Ribeiro**
 
 ---
 
