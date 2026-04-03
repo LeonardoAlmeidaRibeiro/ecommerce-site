@@ -96,6 +96,25 @@ O sistema segue o padrão **MVC (Model-View-Controller)**:
 | Routes      | Definem as rotas da aplicação                 |
 
 ---
+## 🗄️ Banco de Dados
+
+O sistema utiliza um banco de dados relacional modelado para um cenário de e-commerce, contendo as entidades **Usuários**, **Produtos**, **Pedidos** e **Itens do Pedido**.
+
+A estrutura foi criada utilizando **Migrations do Laravel**, permitindo versionamento e controle da estrutura do banco de dados. O relacionamento entre as entidades garante a integridade dos dados e segue o padrão:
+
+* Um usuário pode possuir vários pedidos
+* Um pedido pertence a um usuário
+* Um pedido possui vários itens
+* Cada item do pedido está associado a um produto
+
+O Laravel também utiliza tabelas auxiliares para controle de **sessões**, **cache**, **filas** e **tokens de autenticação**, responsáveis por funcionalidades internas do framework.
+
+A imagem abaixo apresenta o diagrama do banco de dados com as entidades e seus relacionamentos.
+## Diagrama do Banco de Dados
+
+<p align="center">
+  <img src="docs/banco.png" width="700">
+</p>
 
 ## 🔄 Fluxo da aplicação
 
