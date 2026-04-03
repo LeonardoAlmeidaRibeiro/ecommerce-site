@@ -30,28 +30,90 @@ A API permite consultar pedidos com todos os seus relacionamentos (usuário e pr
 
 ---
 
-## 📂 Estrutura do projeto
+## 📂 Estrutura do Projeto
 
-### Models
+O projeto segue a estrutura padrão do Laravel, organizada em camadas como Controllers, Models, Migrations e Seeders.
 
-* `User` → Usuários do sistema
-* `Product` → Produtos disponíveis
-* `Order` → Pedidos realizados
-* `OrderItem` → Itens de cada pedido
-
-### Relacionamentos
-
-```php
-// Order
-public function user()
-public function orderItens()
-
-// OrderItem
-public function order()
-public function product()
+```
+app/
+ ├── Http/
+ │    └── Controllers/
+ │         ├── OrderController.php
+ │         └── Api/
+ │              └── OrderController.php
+ │
+ ├── Models/
+ │    ├── User.php
+ │    ├── Product.php
+ │    ├── Order.php
+ │    └── OrderItem.php
+ │
+database/
+ ├── migrations/
+ │    ├── create_users_table.php
+ │    ├── create_products_table.php
+ │    ├── create_orders_table.php
+ │    └── create_order_itens_table.php
+ │
+ ├── seeders/
+ │    ├── DatabaseSeeder.php
+ │    ├── UserSeeder.php
+ │    ├── ProductSeeder.php
+ │    ├── OrderSeeder.php
+ │    └── OrderItemSeeder.php
+ │
+resources/
+ └── views/
+      └── index.blade.php
+ │
+routes/
+ ├── web.php
+ └── api.php
 ```
 
 ---
+
+## 🧱 Arquitetura
+
+O sistema segue o padrão **MVC (Model-View-Controller)**:
+
+* **Model** → Responsável pelas regras de negócio e acesso ao banco de dados
+* **Controller** → Responsável por receber as requisições e retornar as respostas
+* **View** → Responsável pela interface do usuário (Blade)
+* **API** → Responsável por fornecer os dados em formato JSON
+
+---
+
+## 📌 Responsabilidade de cada parte
+
+| Camada      | Responsabilidade                              |
+| ----------- | --------------------------------------------- |
+| Models      | Representam as entidades e os relacionamentos |
+| Controllers | Controlam as requisições e respostas          |
+| Migrations  | Criam a estrutura do banco de dados           |
+| Seeders     | Populam o banco com dados de teste            |
+| Views       | Interface visual com Blade                    |
+| Routes      | Definem as rotas da aplicação                 |
+
+---
+
+## 🔄 Fluxo da aplicação
+
+O fluxo básico da aplicação funciona da seguinte forma:
+
+```
+Cliente → Rota → Controller → Model → Banco de Dados
+                                   ↓
+Cliente ← Resposta (View ou JSON) ←
+```
+
+Exemplo:
+
+* O usuário acessa `/api/orders/1`
+* A rota chama o `OrderController`
+* O controller busca os dados no `Model`
+* O sistema retorna um JSON com o pedido, usuário e produtos
+
 
 ## 🧠 Conceitos aplicados
 
