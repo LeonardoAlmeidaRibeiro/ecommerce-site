@@ -16,14 +16,17 @@ A API permite consultar pedidos com todos os seus relacionamentos (usuário e pr
 
 ---
 
-## 🚀 Tecnologias utilizadas
+## 🚀 Tecnologias Utilizadas
 
-* PHP 8+
-* Laravel
-* Eloquent ORM
-* MySQL
-* API REST
-* Blade (visualização simples)
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="laravel" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" alt="git" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" alt="github" />
+</p>
+
 
 ---
 
