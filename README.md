@@ -265,39 +265,6 @@ public function index()
 
 ---
 
-## 🗄️ Banco de Dados
-
-### Tabelas principais
-
-* `users`
-* `products`
-* `orders`
-* `order_itens`
-
-### Relacionamentos
-
-* `orders.user_id → users.id`
-* `order_itens.order_id → orders.id`
-* `order_itens.product_id → products.id`
-
----
-
-## 🌱 Seeders
-
-O projeto já possui seeders para popular o banco:
-
-* `UserSeeder`
-* `ProductSeeder`
-* `OrderSeeder`
-* `OrderItemSeeder`
-
-Executar:
-
-```bash
-php artisan migrate --seed
-```
-
----
 
 ## ⚙️ Como rodar o projeto
 
