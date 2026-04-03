@@ -249,16 +249,16 @@ GET /api/orders/{id}
 
 
 ### Tela Inicial
-![Tela Inicial](public/assets/images/screenshots/home.png)
+<img src="public/assests/images/home.png">
 
 ### Pedido Encontrado
-![Pedido Encontrado](public/assets/images/screenshots/pedido_encontrado.png)
+<img src="public/assests/images/pedido_encontrado.png">
 
 ### Pedido Não Encontrado
-![Pedido Não Encontrado](public/assets/images/screenshots/pedido_nao_encontrado.png)
+<img src="public/assests/images/pedido_nao_encontrado.png">
 
 ### Validação de Campo
-![Validação](public/assets/images/screenshots/validacao.png)
+<img src="public/assests/images/validacao.png">
 
 ---
 
