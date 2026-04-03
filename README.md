@@ -247,21 +247,18 @@ GET /api/orders/{id}
 
 ## 🖥️ Visualização (Web)
 
-Existe também uma rota web que lista todos os pedidos:
 
-```
-GET /
-```
+### Tela Inicial
+![Tela Inicial](public/assets/images/screenshots/home.png)
 
-Controller:
+### Pedido Encontrado
+![Pedido Encontrado](public/assets/images/screenshots/pedido_encontrado.png)
 
-```php
-public function index()
-{
-    $orders = Order::with('user', 'orderItens.product')->get();
-    return view('index', compact('orders'));
-}
-```
+### Pedido Não Encontrado
+![Pedido Não Encontrado](public/assets/images/screenshots/pedido_nao_encontrado.png)
+
+### Validação de Campo
+![Validação](public/assets/images/screenshots/validacao.png)
 
 ---
 
@@ -270,7 +267,7 @@ public function index()
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone git@github.com:LeonardoAlmeidaRibeiro/ecommerce-site.git
 
 # Entrar na pasta
 cd seu-repo
