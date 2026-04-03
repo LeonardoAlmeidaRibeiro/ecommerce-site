@@ -1,28 +1,206 @@
-🛒 API E-Commerce - Sistema de Consulta de Pedidos
+# 🛒 Order Management API (Laravel)
 
-Sistema desenvolvido em Laravel para consulta de pedidos de um e-commerce.
-A aplicação permite buscar um pedido pelo ID e visualizar os dados do cliente, produtos comprados, quantidades, preços e o valor total da compra.
+Este projeto é uma API REST desenvolvida em **Laravel** para gerenciamento de pedidos, usuários e produtos, com suporte a relacionamento entre entidades e carregamento otimizado de dados.
 
-O projeto demonstra a construção de uma API RESTful com Laravel e o consumo dessa API através de uma interface web utilizando AJAX.
+---
 
-🚀 Tecnologias Utilizadas
+## 📌 Sobre o projeto
 
-Backend
+A aplicação simula um sistema de pedidos (orders), onde:
 
-PHP
-Laravel
-Eloquent ORM
-API REST
+* Um **usuário** pode ter vários pedidos
+* Um **pedido** possui vários itens
+* Cada **item do pedido** está associado a um produto
 
-Frontend
+A API permite consultar pedidos com todos os seus relacionamentos (usuário e produtos), utilizando **Eager Loading** para melhor performance.
 
-HTML
-CSS
-JavaScript
-jQuery
-AJAX
-SweetAlert2
+---
 
-Banco de Dados
+## 🚀 Tecnologias utilizadas
 
-MySQL
+* PHP 8+
+* Laravel
+* Eloquent ORM
+* MySQL
+* API REST
+* Blade (visualização simples)
+
+---
+
+## 📂 Estrutura do projeto
+
+### Models
+
+* `User` → Usuários do sistema
+* `Product` → Produtos disponíveis
+* `Order` → Pedidos realizados
+* `OrderItem` → Itens de cada pedido
+
+### Relacionamentos
+
+```php
+// Order
+public function user()
+public function orderItens()
+
+// OrderItem
+public function order()
+public function product()
+```
+
+---
+
+## 🧠 Conceitos aplicados
+
+* Relacionamentos Eloquent (`hasMany`, `belongsTo`)
+* Eager Loading (`with`)
+* API REST com retorno em JSON
+* Tratamento de exceções
+* Migrations e Seeders
+* Organização em camadas (Controller → Model)
+
+---
+
+## 🔗 Endpoints
+
+### 📥 Buscar pedido por ID
+
+```
+GET /api/orders/{id}
+```
+
+### ✅ Resposta de sucesso
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "user": {...},
+      "order_itens": [
+        {
+          "product": {...}
+        }
+      ]
+    }
+  ],
+  "message": "Pedido encontrado!"
+}
+```
+
+### ❌ Pedido não encontrado
+
+```json
+{
+  "success": false,
+  "data": [],
+  "message": "Pedido não encontrado"
+}
+```
+
+---
+
+## 🖥️ Visualização (Web)
+
+Existe também uma rota web que lista todos os pedidos:
+
+```
+GET /
+```
+
+Controller:
+
+```php
+public function index()
+{
+    $orders = Order::with('user', 'orderItens.product')->get();
+    return view('index', compact('orders'));
+}
+```
+
+---
+
+## 🗄️ Banco de Dados
+
+### Tabelas principais
+
+* `users`
+* `products`
+* `orders`
+* `order_itens`
+
+### Relacionamentos
+
+* `orders.user_id → users.id`
+* `order_itens.order_id → orders.id`
+* `order_itens.product_id → products.id`
+
+---
+
+## 🌱 Seeders
+
+O projeto já possui seeders para popular o banco:
+
+* `UserSeeder`
+* `ProductSeeder`
+* `OrderSeeder`
+* `OrderItemSeeder`
+
+Executar:
+
+```bash
+php artisan migrate --seed
+```
+
+---
+
+## ⚙️ Como rodar o projeto
+
+```bash
+# Clonar o repositório
+git clone https://github.com/seu-usuario/seu-repo.git
+
+# Entrar na pasta
+cd seu-repo
+
+# Instalar dependências
+composer install
+
+# Copiar .env
+cp .env.example .env
+
+# Gerar chave
+php artisan key:generate
+
+# Configurar banco no .env
+
+# Rodar migrations + seeders
+php artisan migrate --seed
+
+# Subir servidor
+php artisan serve
+```
+
+---
+
+## 📈 Possíveis melhorias
+
+* Implementar autenticação (Laravel Sanctum ou JWT)
+* Criar endpoints de criação/edição/exclusão (CRUD completo)
+* Paginação de pedidos
+* Filtros por status e data
+* Validação com Form Requests
+* Testes automatizados (PHPUnit)
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Leonardo Almeida**
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
