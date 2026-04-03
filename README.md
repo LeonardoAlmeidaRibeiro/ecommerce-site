@@ -116,14 +116,14 @@ _Tabela: Users_
 | 2  | Alex Ramos     | 12345678901 | 61988888888 | [alex@mail.com](mailto:alex@mail.com)     | 1990-11-01         | teste |
 
 _Tabela: Products_
+| ID | Nome             | Descrição                   | Preço   | Image URL    |
+| -- | ---------------- | --------------------------- | ------- | ------------ |
+| 1  | Mouse Gamer      | Mouse RGB 7200 DPI          | 19.90   | mouse.jpg    |
+| 2  | Computador Gamer | Computador Xtreme Turbo RGB | 1200.50 | pc_gamer.png |
+| 3  | Teclado Gamer    | Teclado Mecânico            | 39.90   | teclado.png  |
+| 4  | Monitor Gamer    | Monitor Tela 21" - 4K       | 560.00  | monitor.png  |
+| 5  | Headset Gamer    | Fone Bluetooth              | 250.00  | headset.png  |
 
-| ID | Nome             | Descrição                     | Preço   | Image URL    |
-| -- | ---------------- | ------------------------------| ----- --| ------------ |
-| 1  | Mouse Gamer      | Mouse RGB 7200 DPI            | 19.90   | mouse.jpg    |
-| 2  | Computador Gamer | Computador Xtreme Turbo RGB   | 1200.50 | pc_gamer.png |
-| 3  | Teclado Gamer    | Teclado Mecânico              | 39.90   | teclado.png  |
-| 4  | Monitor Gamer    | Monitor Tela 21 P - 4K.       | 560.00  | monitor.png  |
-| 5  | Headset Gamer    | Fone Bluetooh                 | 250     | headset.png  |
 
 _Tabela: Orders_
 | ID | Data       | Status          | Cliente (User ID) |
