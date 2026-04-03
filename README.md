@@ -116,6 +116,7 @@ _Tabela: Users_
 | 2  | Alex Ramos     | 12345678901 | 61988888888 | [alex@mail.com](mailto:alex@mail.com)     | 1990-11-01         | teste |
 
 _Tabela: Products_
+
 | ID | Nome             | Descrição                     | Preço   | Image URL    |
 | -- | ---------------- | ------------------------------| ----- --| ------------ |
 | 1  | Mouse Gamer      | Mouse RGB 7200 DPI            | 19.90   | mouse.jpg    |
