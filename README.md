@@ -197,25 +197,36 @@ GET /api/orders/{id}
 
 ### ✅ Resposta de sucesso
 
-```json
 {
   "success": true,
   "data": [
     {
       "id": 1,
-      "user": {...},
+      "moment": "2026-03-12 10:00:00",
+      "status": "Pendente",
+      "user": {
+        "id": 1,
+        "name": "Maria Silva",
+        "cpf": "12345678900",
+        "phone": "61999999999",
+        "email": "maria@mail.com"
+      },
       "order_itens": [
         {
-          "product": {...}
+          "quantity": 1,
+          "price": 19.90,
+          "product": {
+            "id": 1,
+            "name": "Mouse Gamer"
+          }
         }
       ]
     }
   ],
   "message": "Pedido encontrado!"
 }
-```
 
-### ❌ Pedido não encontrado
+### ❌ Pedido não encontrado (404)
 
 ```json
 {
@@ -224,7 +235,14 @@ GET /api/orders/{id}
   "message": "Pedido não encontrado"
 }
 ```
-
+### ⚠️ Erro interno (500)
+```json
+{
+  "success": false,
+  "error": "Erro ao recuperar pedido",
+  "message": "Erro interno do servidor"
+}
+```
 ---
 
 ## 🖥️ Visualização (Web)
