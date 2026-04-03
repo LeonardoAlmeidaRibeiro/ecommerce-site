@@ -17,5 +17,6 @@ class ProductSeeder extends Seeder
         Product::create(['name' => 'Teclado Gamer', 'description' => 'Teclado mecânico.', 'price' => '39.90',  'img_url' => 'assets/images/teclado.jpg']);
         Product::create(['name' => 'Computador Gamer', 'description' => 'Computador Xtreme Turbo.', 'price' => '1200.50',  'img_url' => 'assets/images/pc_gamer.png']);
         Product::create(['name' => 'Monitor Gamer', 'description' => 'Monitor Tela 21 P - 4K.', 'price' => '560.00',  'img_url' => 'assets/images/monitor.png']);
+        Product::create(['name' => 'Headset Gamer', 'description' => 'Fone Bluetooh.', 'price' => '25.00',  'img_url' => 'assets/images/fone.png']);
     }
 }
