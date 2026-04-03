@@ -260,6 +260,8 @@ GET /api/orders/{id}
 ### Validação de Campo
 <img src="public/assests/images/validacao.png">
 
+### Busca na API
+<img src="public/assests/images/postman">
 ---
 
 
