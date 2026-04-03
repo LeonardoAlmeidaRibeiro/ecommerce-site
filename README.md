@@ -196,7 +196,7 @@ GET /api/orders/{id}
 ```
 
 ### ✅ Resposta de sucesso
-
+```json
 {
   "success": true,
   "data": [
@@ -225,7 +225,7 @@ GET /api/orders/{id}
   ],
   "message": "Pedido encontrado!"
 }
-
+```
 ### ❌ Pedido não encontrado (404)
 
 ```json
