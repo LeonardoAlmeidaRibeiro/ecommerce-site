@@ -108,6 +108,47 @@ A estrutura foi criada utilizando **Migrations do Laravel**, permitindo versiona
 * Cada item do pedido está associado a um produto
 
 O Laravel também utiliza tabelas auxiliares para controle de **sessões**, **cache**, **filas** e **tokens de autenticação**, responsáveis por funcionalidades internas do framework.
+## Seed do Banco de Dados
+_Tabela: Users_
+| ID | Nome           | CPF         | Telefone    | Email                                     | Data de Nascimento | Senha |
+| -- | -------------- | ----------- | ----------- | ----------------------------------------- | ------------------ | ----- |
+| 1  | Maria Silva    | 12345678900 | 61999999999 | [maria@mail.com](mailto:maria@mail.com)   | 2000-11-01         | teste |
+| 2  | Alex Ramos     | 12345678901 | 61988888888 | [alex@mail.com](mailto:alex@mail.com)     | 1990-11-01         | teste |
+
+_Tabela: Products_
+| ID | Nome             | Descrição                     | Preço   | Image URL    |
+| -- | ---------------- | ------------------------------| ----- --| ------------ |
+| 1  | Mouse Gamer      | Mouse RGB 7200 DPI            | 19.90   | mouse.jpg    |
+| 2  | Computador Gamer | Computador Xtreme Turbo RGB   | 1200.50 | pc_gamer.png |
+| 3  | Teclado Gamer    | Teclado Mecânico              | 39.90   | teclado.png  |
+| 4  | Monitor Gamer    | Monitor Tela 21 P - 4K.       | 560.00  | monitor.png  |
+| 5  | Headset Gamer    | Fone Bluetooh                 | 250     | headset.png  |
+
+_Tabela: Orders_
+| ID | Data       | Status          | Cliente (User ID) |
+| -- | ---------- | --------------- | ----------------- |
+| 1  | 2025-01-10 | WAITING_PAYMENT | 1                 |
+| 2  | 2025-01-11 | PAID            | 2                 |
+| 3  | 2025-01-12 | SHIPPED         | 3                 |
+| 4  | 2025-01-13 | DELIVERED       | 1                 |
+| 5  | 2025-01-14 | CANCELED        | 4                 |
+
+_Tabela: Order_Items_
+| ID | Data/Hora           | Status          | User ID |
+| -- | ------------------- | --------------- | ------- |
+| 1  | 2026-03-12 10:00:00 | Pendente        | 1       |
+| 2  | 2026-03-12 21:21:21 | Pago            | 2       |
+| 3  | 2026-03-12 23:59:59 | Cancelado       | 1       |
+
+_Status do Pedido (ENUM)_
+| Status    |
+| --------- |
+| Pendente  |
+| Pago      |
+| Enviado   |
+| Entregue  |
+| Cancelado |
+
 
 A imagem abaixo apresenta o diagrama do banco de dados com as entidades e seus relacionamentos.
 ## Diagrama do Banco de Dados
