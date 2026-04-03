@@ -1,60 +1,290 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🛒 Order Management API (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+Este projeto é uma API REST desenvolvida em **Laravel** para gerenciamento de pedidos, usuários e produtos, com suporte a relacionamento entre entidades e carregamento otimizado de dados.
+
+---
+
+## 📌 Sobre o projeto
+
+A aplicação simula um sistema de pedidos (orders), onde:
+
+* Um **usuário** pode ter vários pedidos
+* Um **pedido** possui vários itens
+* Cada **item do pedido** está associado a um produto
+
+A API permite consultar pedidos com todos os seus relacionamentos (usuário e produtos), utilizando **Eager Loading** para melhor performance.
+
+---
+
+## 🚀 Tecnologias Utilizadas
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" height="40" alt="php" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="laravel" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="40" alt="git" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" height="40" alt="github" />
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📂 Estrutura do Projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+O projeto segue a estrutura padrão do Laravel, organizada em camadas como Controllers, Models, Migrations e Seeders.
 
-## Learning Laravel
+```
+app/
+ ├── Http/
+ │    └── Controllers/
+ │         ├── OrderController.php
+ │         └── Api/
+ │              └── OrderController.php
+ │
+ ├── Models/
+ │    ├── User.php
+ │    ├── Product.php
+ │    ├── Order.php
+ │    └── OrderItem.php
+ │
+database/
+ ├── migrations/
+ │    ├── create_users_table.php
+ │    ├── create_products_table.php
+ │    ├── create_orders_table.php
+ │    └── create_order_itens_table.php
+ │
+ ├── seeders/
+ │    ├── DatabaseSeeder.php
+ │    ├── UserSeeder.php
+ │    ├── ProductSeeder.php
+ │    ├── OrderSeeder.php
+ │    └── OrderItemSeeder.php
+ │
+resources/
+ └── views/
+      └── index.blade.php
+ │
+routes/
+ ├── web.php
+ └── api.php
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🧱 Arquitetura
 
-## Laravel Sponsors
+O sistema segue o padrão **MVC (Model-View-Controller)**:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* **Model** → Responsável pelas regras de negócio e acesso ao banco de dados
+* **Controller** → Responsável por receber as requisições e retornar as respostas
+* **View** → Responsável pela interface do usuário (Blade)
+* **API** → Responsável por fornecer os dados em formato JSON
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 📌 Responsabilidade de cada parte
 
-## Contributing
+| Camada      | Responsabilidade                              |
+| ----------- | --------------------------------------------- |
+| Models      | Representam as entidades e os relacionamentos |
+| Controllers | Controlam as requisições e respostas          |
+| Migrations  | Criam a estrutura do banco de dados           |
+| Seeders     | Populam o banco com dados de teste            |
+| Views       | Interface visual com Blade                    |
+| Routes      | Definem as rotas da aplicação                 |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
+## 🗄️ Banco de Dados
 
-## Code of Conduct
+O sistema utiliza um banco de dados relacional modelado para um cenário de e-commerce, contendo as entidades **Usuários**, **Produtos**, **Pedidos** e **Itens do Pedido**.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+A estrutura foi criada utilizando **Migrations do Laravel**, permitindo versionamento e controle da estrutura do banco de dados. O relacionamento entre as entidades garante a integridade dos dados e segue o padrão:
 
-## Security Vulnerabilities
+* Um usuário pode possuir vários pedidos
+* Um pedido pertence a um usuário
+* Um pedido possui vários itens
+* Cada item do pedido está associado a um produto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+O Laravel também utiliza tabelas auxiliares para controle de **sessões**, **cache**, **filas** e **tokens de autenticação**, responsáveis por funcionalidades internas do framework.
 
-## License
+A imagem abaixo apresenta o diagrama do banco de dados com as entidades e seus relacionamentos.
+## Diagrama do Banco de Dados
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# ecommerce-site" 
+<p align="center">
+  <img src="docs/banco.png" width="700">
+</p>
+
+## 🔄 Fluxo da aplicação
+
+O fluxo básico da aplicação funciona da seguinte forma:
+
+```
+Cliente → Rota → Controller → Model → Banco de Dados
+                                   ↓
+Cliente ← Resposta (View ou JSON) ←
+```
+
+Exemplo:
+
+* O usuário acessa `/api/orders/1`
+* A rota chama o `OrderController`
+* O controller busca os dados no `Model`
+* O sistema retorna um JSON com o pedido, usuário e produtos
+
+
+## 🧠 Conceitos aplicados
+
+* Relacionamentos Eloquent (`hasMany`, `belongsTo`)
+* Eager Loading (`with`)
+* API REST com retorno em JSON
+* Tratamento de exceções
+* Migrations e Seeders
+* Organização em camadas (Controller → Model)
+
+---
+
+## 🔗 Endpoints
+
+### 📥 Buscar pedido por ID
+
+```
+GET /api/orders/{id}
+```
+
+### ✅ Resposta de sucesso
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "user": {...},
+      "order_itens": [
+        {
+          "product": {...}
+        }
+      ]
+    }
+  ],
+  "message": "Pedido encontrado!"
+}
+```
+
+### ❌ Pedido não encontrado
+
+```json
+{
+  "success": false,
+  "data": [],
+  "message": "Pedido não encontrado"
+}
+```
+
+---
+
+## 🖥️ Visualização (Web)
+
+Existe também uma rota web que lista todos os pedidos:
+
+```
+GET /
+```
+
+Controller:
+
+```php
+public function index()
+{
+    $orders = Order::with('user', 'orderItens.product')->get();
+    return view('index', compact('orders'));
+}
+```
+
+---
+
+## 🗄️ Banco de Dados
+
+### Tabelas principais
+
+* `users`
+* `products`
+* `orders`
+* `order_itens`
+
+### Relacionamentos
+
+* `orders.user_id → users.id`
+* `order_itens.order_id → orders.id`
+* `order_itens.product_id → products.id`
+
+---
+
+## 🌱 Seeders
+
+O projeto já possui seeders para popular o banco:
+
+* `UserSeeder`
+* `ProductSeeder`
+* `OrderSeeder`
+* `OrderItemSeeder`
+
+Executar:
+
+```bash
+php artisan migrate --seed
+```
+
+---
+
+## ⚙️ Como rodar o projeto
+
+```bash
+# Clonar o repositório
+git clone https://github.com/seu-usuario/seu-repo.git
+
+# Entrar na pasta
+cd seu-repo
+
+# Instalar dependências
+composer install
+
+# Copiar .env
+cp .env.example .env
+
+# Gerar chave
+php artisan key:generate
+
+# Configurar banco no .env
+
+# Rodar migrations + seeders
+php artisan migrate --seed
+
+# Subir servidor
+php artisan serve
+```
+
+---
+
+## 📈 Possíveis melhorias
+
+* Implementar autenticação (Laravel Sanctum ou JWT)
+* Criar endpoints de criação/edição/exclusão (CRUD completo)
+* Paginação de pedidos
+* Filtros por status e data
+* Validação com Form Requests
+* Testes automatizados (PHPUnit)
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Leonardo Almeida**
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
