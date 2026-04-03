@@ -113,7 +113,7 @@ A imagem abaixo apresenta o diagrama do banco de dados com as entidades e seus r
 ## Diagrama do Banco de Dados
 
 <p align="center">
-  <img src="docs/banco.png" width="700">
+  <img src="public/assests/images/db_ecommerce.png" width="700">
 </p>
 
 ## 🔄 Fluxo da aplicação
